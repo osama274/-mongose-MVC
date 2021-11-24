@@ -1,0 +1,3 @@
+mongoimport --db mongoConference --collection presentations --type json --file conferencePresentations.json --jsonArray
+mongoimport --db mongoConference --collection speakers --type json --file conferenceSpeakers.json --jsonArray
+mongoimport --db mongoConference --collection sponsors --type json --file conferenceSponsors.json --jsonArray
