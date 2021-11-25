@@ -3,7 +3,7 @@ import path from 'path';
 import mongoose from 'mongoose';
 import * as SpeakersController from './controllers/speakersController.js';
 import * as PresentationsController from './controllers/presentationsController.js';
- import * as SponsorsController from './controllers/sponsorsController.js';
+import * as SponsorsController from './controllers/sponsorsController.js';
 
 mongoose.connect('mongodb://localhost:27017/mongoConference');
 
@@ -38,9 +38,11 @@ app.get('/presentations', async (req, res) => {
 	});
 });
 app.get('/sponsors', async (req, res) => {
+  const sponsors = await SponsorsController.getAllSponsors()
+  console.log(sponsors)
 	res.render('sponsors', {
 		pageTitle: "sponsors",
-		sponsors: await SponsorsController.getAllSponsors()
+		sponsors
 	});
 });
 
